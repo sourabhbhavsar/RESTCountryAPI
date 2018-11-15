@@ -1,10 +1,10 @@
-package app.country;
+package app.state;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class Country {
+public class State {
 
 	@Id
 	private String id;
@@ -21,13 +21,13 @@ public class Country {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Country(String id, String name) {
+	public State(String id, String name) {
 		super();
 		this.id = id;
 		this.name = name;
 	}
 	
-	public Country() {
+	public State() {
 		
 	}
 	

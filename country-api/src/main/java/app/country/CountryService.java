@@ -2,12 +2,16 @@ package app.country;
 
 import java.util.ArrayList;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CountryService {
 
 	private ArrayList<Country> countries;
+	
+	@Autowired
+	private CountryRepository countryRepo;
 	
 	public CountryService() {
 		countries = new ArrayList<Country>();
@@ -17,9 +21,17 @@ public class CountryService {
 		countries.add(new Country("4", "England"));
 		countries.add(new Country("5", "New Zealand"));
 		countries.add(new Country("6", "Ireland"));
+		
+		
 	}
 	
+	
+	
 	public ArrayList<Country> getAllCountries(){
+
+		ArrayList<Country> list = new ArrayList<Country>();
+
+		//countryRepo.findAll().forEach(list::add);
 		return countries;
 	}
 	
@@ -29,6 +41,7 @@ public class CountryService {
 	
 	public void addCountry(Country country) {
 		countries.add(country);
+		//countryRepo.save(country);
 	}
 
 	public void updateCountry(Country country, String id) {
