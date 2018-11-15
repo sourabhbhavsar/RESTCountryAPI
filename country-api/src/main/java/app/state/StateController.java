@@ -30,19 +30,19 @@ public class StateController {
 		return stateService.getState(id);
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, path = "/countries")
+	@RequestMapping(method = RequestMethod.POST, path = "/countries/{id}/states")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void addCountry(@RequestBody State country) {
 		stateService.addState(country);
 	}
 	
-	@RequestMapping(method = RequestMethod.PUT, path = "/countries/{id}")
+	@RequestMapping(method = RequestMethod.PUT, path = "/countries/{id}/states/{stateId}")
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void updateCountry(@RequestBody State country, @PathVariable(name = "id") String id) {
 		stateService.updateState(country, id);
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, path = "/countries/{id}")
+	@RequestMapping(method = RequestMethod.DELETE, path = "/countries/{id}/states/{stateId}")
 	@ResponseStatus(code = HttpStatus.OK)
 	public void deleteCountry(@PathVariable(name = "id") String id) {
 		stateService.deleteState(id);
